@@ -11,16 +11,39 @@ $contas = [
     ], 
     '123.456.789-12' => [
         'titular' => 'José',
-        'valor' => 300000
+        'valor' => 500
     ]
 ];
 
-$contas['123.456.987-10'] = [
-    'titular' => 'Marcos',
-    'valor' => 450000
-];
+function quebrarLinha($mensagem){
+    echo "$mensagem" . PHP_EOL;
+}
+
+function sacar(&$conta, $valor){
+    if($conta > $valor){
+        $conta -= $valor;
+    } else{
+        quebrarLinha("Não possui saldo para sacar!");
+    }
+    return $conta;
+}
+
+function depositar(&$conta, $valor){
+    if($valor < 0){
+        quebrarLinha("Não pode efetuar depósito negativo!");
+    }else{
+        $conta += $valor;
+    }
+    return $conta;
+
+}
+
+sacar($contas['123.456.789-12']['valor'], 1500);
+
+depositar($contas['123.456.789-10']['valor'], 600);
+
 
 foreach($contas as $cpf => $conta){
-    echo $cpf . " " . $conta['titular'] . PHP_EOL;
+    quebrarLinha($cpf . " - " . $conta['titular'] . " = " . $conta['valor']);
 }
 

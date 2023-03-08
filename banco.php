@@ -38,7 +38,7 @@ function depositar(&$conta, $valor){
 
 }
 
-sacar($contas['123.456.789-12']['valor'], 1500);
+sacar($contas['123.456.789-12']['valor'], 326);
 
 depositar($contas['123.456.789-10']['valor'], 600);
 

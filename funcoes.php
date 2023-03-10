@@ -2,7 +2,7 @@
 
 function quebrarLinha($mensagem)
 {
-    echo "$mensagem" . PHP_EOL;
+    echo "$mensagem" . PHP_EOL . '<br>';
 }
 
 function sacar(&$conta, $valor)
@@ -28,4 +28,9 @@ function depositar(&$conta, $valor)
 function titularComLetrasMaiusculas(&$conta)
 {
     $conta['titular'] = mb_strtoupper($conta['titular']);
+}
+
+function exibeConta($conta){
+    ['titular' => $titular, 'valor' => $valor] = $conta;
+    echo "<li>Titular: $titular. Saldo: {$valor}</li>";
 }

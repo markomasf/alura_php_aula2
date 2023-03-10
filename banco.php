@@ -25,7 +25,8 @@ titularComLetrasMaiusculas($contas['123.456.789-12']);
 
 //unset($contas['123.456.789-12']) remover a conta UNSET
 
+echo "<ul>";
 foreach ($contas as $cpf => $conta) {
-    ['titular' => $titular, 'valor' => $valor] = $conta;
-    quebrarLinha("$cpf =  $titular  =  $valor");
+    exibeConta($conta);
 }
+echo "</ul>";
